@@ -1,0 +1,50 @@
+.quote-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px 18px 18px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.quote-card::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    bottom: 14px;
+    width: 4px;
+    border-radius: 10px;
+    background: rgba(63, 107, 79, 0.65);
+}
+
+.quote-card__quote {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    font-style: italic;
+    color: rgba(31, 42, 31, 0.9);
+}
+
+.quote-card__author {
+    margin: 12px 0 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(31, 42, 31, 0.9);
+}
+
+@media (max-width: 520px) {
+    .quote-card {
+        padding: 16px 16px 16px 20px;
+        border-radius: 16px;
+    }
+
+    .quote-card__quote {
+        font-size: 16px;
+    }
+
+    .quote-card__author {
+        font-size: 14px;
+    }
+}

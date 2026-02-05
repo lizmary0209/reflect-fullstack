@@ -1,0 +1,15 @@
+.entry__textarea {
+    min-height: 120px;
+    resize: vertical;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text);
+}
+
+.entry__textarea:focus {
+    outline: 3px solid rgba(63, 107, 79, 0.25);
+    border-color: rgba(63, 107, 79, 0.35);
+}
