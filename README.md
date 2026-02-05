@@ -150,6 +150,9 @@ https://drive.google.com/file/d/1JlC-p9ySAa8aapVgu3yQoe7SNLADsIqL/view
 
 https://drive.google.com/file/d/1kFMDfYWHF8NX9wADQ7j3apM2x69X0vHM/view
 
+_Last updated for final review._
+
+
 ## 👩‍💻 Author
 
 Lizmary Chardon
