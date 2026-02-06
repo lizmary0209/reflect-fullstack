@@ -85,7 +85,6 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading, error }) {
 
       <div className="auth__actions">
         <button className="auth__button" type="submit" disabled={isLoading}>
-          {isLoading ? "Signing in..." : "Sign in"}
           Sign in
         </button>
       </div>
