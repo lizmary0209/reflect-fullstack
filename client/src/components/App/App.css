@@ -11,12 +11,24 @@
   --container: 1100px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+
+html, 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
+}
+
+img, 
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .app {
@@ -30,6 +42,8 @@ body {
     var(--bg) 100%
   );
   color: var(--text);
+  width: 100%;
+  max-width: 100%;
 }
 
 .app__content {
@@ -38,10 +52,23 @@ body {
   justify-content: center;
   flex: 1;
   padding: 24px 20px 40px;
+  max-width: 100%;
 }
 
 .app__container {
   width: 100%;
   max-width: var(--container);
+  min-width: 0;
+}
+
+.app__error {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(180, 30, 30, 0.25);
+  background: rgba(180, 30, 30, 0.08);
+  color: rgba(180, 30, 30, 0.95);
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 13px;
 }
 

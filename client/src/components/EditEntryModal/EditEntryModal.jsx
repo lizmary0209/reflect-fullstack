@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./EditEntryModal.css";
 
-function EditEntryModal({ isOpen, onClose, onUpdateEntry, isLoading, entry }) {
+function EditEntryModal({ isOpen, onClose, onUpdateEntry, isLoading, entry, error }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [mood, setMood] = useState("neutral");
@@ -53,6 +53,7 @@ function EditEntryModal({ isOpen, onClose, onUpdateEntry, isLoading, entry }) {
                 maxLength="100"
                 required
                 />
+                <p className="modal__error">Title is required.</p>
             </label>
 
             <label className="auth__label">
@@ -67,6 +68,7 @@ function EditEntryModal({ isOpen, onClose, onUpdateEntry, isLoading, entry }) {
                 maxLength="5000"
                 required
                 />
+                <p className="modal__error">Entry text is required.</p>
             </label>
 
             <label className="auth__label">
@@ -98,6 +100,8 @@ function EditEntryModal({ isOpen, onClose, onUpdateEntry, isLoading, entry }) {
                 placeholder="Faith, Gratitude, Progress"
                 />
             </label>
+
+            {error ? <p className="modal__api-error">{error}</p> : null}
 
             <div className="auth__actions">
             <button className="auth__button" type="submit" disabled={isLoading}>

@@ -65,24 +65,28 @@ function Main({
 
   return (
     <main className="main">
-      <header className="main__header">
+      <div className="main__header">
         <h1 className="main__title">{formatToday()}</h1>
         <p className="main__subtitle">A quiet space to reflect and write.</p>
-      </header>
+      </div>
 
       {isLoadingQuote ? (
         <Preloader text="Loading quote..." />
       ) : quoteError ? (
-        <div className="quote-fallback">Quote unavailable right now. Please try again later.</div>
+        <div className="quote-fallback">
+          Quote unavailable right now. Please try again later.
+          </div>
       ) : quote ? (
         <QuoteCard quote={quote.q} author={quote.a} />
       ) : (
-        <div className="quote-fallback">Quote unavailable right now. Please try again later.</div>
+        <div className="quote-fallback">
+          Quote unavailable right now. Please try again later.
+          </div>
       )}
 
-      <section className="journal" aria-label="Journal">
+      <article className="journal" aria-label="Journal">
         <div className="journal__header">
-          <h3 className="journal__title">Your journal</h3>
+          <h2 className="journal__title">Your journal</h2>
           <button className="journal__button" type="button" onClick={onOpenNewEntry} disabled={!isLoggedIn}>
             New Entry
           </button>
@@ -100,7 +104,7 @@ function Main({
               <li key={entry._id} className="journal__item">
                 <div className="journal__item-header">
                   <div className="journal__item-heading">
-                  <h4 className="journal__item-title">{entry.title}</h4>
+                  <h3 className="journal__item-title">{entry.title}</h3>
                   {entry.createdAt ? (
                     <p className="journal__item-date">{formatDate(entry.createdAt)}</p>
                   ) : null}
@@ -144,7 +148,7 @@ function Main({
             </li>
           </ul>
         )}
-      </section>
+      </article>
     </main>
   );
 }

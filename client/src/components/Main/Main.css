@@ -2,10 +2,13 @@
    display: grid;
    gap: 18px;
    padding-bottom: 6px;
+   width: 100%;
+   max-width: 100%;
 }
 
 .main__header {
     padding: 6px 2px 2px;
+    min-width: 0;
 }
 
 .main__title {
@@ -27,6 +30,7 @@
     border-radius: 18px;
     padding: 14px 16px;
     color: rgba(31, 42, 31, 0.75);
+    min-width: 0;
 }
 
 .journal {
@@ -35,6 +39,7 @@
     border-radius: 20px;
     padding: 16px;
     box-shadow: var(--shadow);
+    min-width: 0;
 }
 
 .journal__header {
@@ -43,6 +48,7 @@
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
+    min-width: 0;
 }
 
 .journal__title {
@@ -62,6 +68,7 @@
     font-size: 13px;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.05s ease;
+    max-width: 100%;
 }
 
 .journal__button:hover {
@@ -83,6 +90,7 @@
     margin: 0;
     display: grid;
     gap: 12px;
+    min-width: 0;
 }
 
 .journal__empty {
@@ -95,6 +103,7 @@
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.96);
     padding: 14px 14px 12px;
+    min-width: 0;
 }
 
 .journal__item-header {
@@ -102,12 +111,14 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
+    min-width: 0;
 }
 
 .journal__item-heading {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    min-width: 0;
 }
 
 .journal__item-date {
@@ -122,6 +133,8 @@
     font-size: 15px;
     font-weight: 900;
     color: var(--text);
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .journal__item-actions {
@@ -129,6 +142,7 @@
     gap: 8px;
     flex-wrap: wrap;
     justify-content: flex-end;
+    min-width: 0;
 }
 
 .journal__action {
@@ -141,6 +155,7 @@
     font-size: 12px;
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.05s ease;
+    max-width: 100%;
 }
 
 .journal__action:hover {
@@ -161,6 +176,8 @@
     font-size: 14px;
     line-height: 1.6;
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .journal__meta {
@@ -168,6 +185,7 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .journal__chip {
@@ -180,6 +198,7 @@
     color: rgba(31, 42, 31, 0.9);
     font-weight: 800;
     font-size: 12px;
+    max-width: 100%;
 }
 
 .journal__chip_mood {

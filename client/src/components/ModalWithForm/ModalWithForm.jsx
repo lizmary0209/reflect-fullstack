@@ -23,7 +23,7 @@ function ModalWithForm({ isOpen, title, children, onClose, onSubmit }) {
                 aria-label="Close modal"
                 onClick={onClose}
                 >
-                    X
+                    x
                 </button>
 
                 <h2 className="modal__title">{title}</h2>

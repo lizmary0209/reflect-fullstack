@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./NewEntryModal.css";
 
-function NewEntryModal({ isOpen, onClose, onCreateEntry, isLoading }) {
+function NewEntryModal({ isOpen, onClose, onCreateEntry, isLoading, error }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [mood, setMood] = useState("neutral");
@@ -15,6 +15,8 @@ function NewEntryModal({ isOpen, onClose, onCreateEntry, isLoading }) {
         setMood("neutral");
         setTags("");
 }, [isOpen]);
+
+if (!isOpen) return null;
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -100,6 +102,8 @@ return (
             placeholder="Faith, Gratitude, Progress"
             />
      </label>
+
+     {error ? <p className="modal__api-error">{error}</p> : null}
 
 <div className="auth__actions">
      <button className="auth__button" type="submit" disabled={isLoading}>

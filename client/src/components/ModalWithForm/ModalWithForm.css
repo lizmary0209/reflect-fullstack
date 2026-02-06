@@ -19,6 +19,8 @@
     box-shadow: var(--shadow);
     padding: 18px 18px 16px;
     position: relative;
+    max-height: calc(100dvh - 36px);
+    overflow: auto;
 }
 
 .modal__close {
@@ -86,6 +88,13 @@ transition: color 0.15s ease, transform 0.05s ease;
     color: rgba(180, 30, 30, 0.85);
 }
 
+.modal__api-error {
+    margin: 2px 0 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(180, 30, 30, 0.9);
+}
+
 .modal input:invalid:not(:placeholder-shown) + .modal__error,
 .modal textarea:invalid:not(:placeholder-shown) + .modal__error {
     display: block;
@@ -147,3 +156,16 @@ transition: color 0.15s ease, transform 0.05s ease;
 .modal select:invalid:not(:placeholder-shown):focus {
     outline: 3px solid rgba(180, 30, 30, 0.25);
 }
+
+@media screen and (max-width: 520px) {
+    .modal {
+        align-items: flex-start;
+        padding-top: 12dvh;
+        padding-bottom: 16px;
+    }
+
+    .modal__content {
+        max-height: calc(100dvh - 12dvh - 32px);
+    }
+}
+
