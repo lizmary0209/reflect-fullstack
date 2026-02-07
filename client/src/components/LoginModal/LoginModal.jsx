@@ -84,9 +84,9 @@ function LoginModal({ isOpen, onClose, onLogin, isLoading, error }) {
       {error ? <p className="modal__api-error">{error}</p> : null}
 
       <div className="auth__actions">
-        <button className="auth__button" type="submit" disabled={isLoading}>
-          Sign in
-        </button>
+       <button className="auth__button" type="submit" disabled={isLoading}>
+  {isLoading ? "Signing in..." : "Sign in"}
+</button>
       </div>
     </ModalWithForm>
   );
