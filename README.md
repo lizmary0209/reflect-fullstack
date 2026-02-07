@@ -8,15 +8,13 @@ This project is built as a **single full-stack MERN application** with a React f
 
 🌐 Live Application
 
-Frontend (use this link):
-👉 https://reflect-client-241770940238.us-east1.run.app
+Live App (Frontend):
+https://reflect-client-241770940238.us-east1.run.app
 
-🔗 Backend API
+Backend API:
+https://reflect-241770940238.us-east1.run.app
 
-API base URL:
-👉 https://reflect-241770940238.us-east1.run.app
-
-⚠️ Note: The backend URL is an API service and is not intended to be opened directly in the browser. All user interactions should be done through the frontend link above.
+Note: The backend URL is an API service; please use the frontend URL to interact with the app.
 ---
 
 ## ✨ Features
