@@ -6,11 +6,17 @@ This project is built as a **single full-stack MERN application** with a React f
 
 ---
 
-## 🌐 Live Application
+🌐 Live Application
 
-**Deployed URL (Google Cloud Run):**  
-https://reflect-241770940238.us-east1.run.app
+Frontend (use this link):
+👉 https://reflect-client-241770940238.us-east1.run.app
 
+🔗 Backend API
+
+API base URL:
+👉 https://reflect-241770940238.us-east1.run.app
+
+⚠️ Note: The backend URL is an API service and is not intended to be opened directly in the browser. All user interactions should be done through the frontend link above.
 ---
 
 ## ✨ Features
@@ -149,8 +155,6 @@ https://drive.google.com/file/d/1JlC-p9ySAa8aapVgu3yQoe7SNLADsIqL/view
 # Backend Walkthrough
 
 https://drive.google.com/file/d/1kFMDfYWHF8NX9wADQ7j3apM2x69X0vHM/view
-
-_Last updated for final review._
 
 
 ## 👩‍💻 Author

@@ -10,7 +10,25 @@ const quoteRouter = require("./routes/quote");
 
 const app = express();
 
-app.use(helmet());
+const FRONTEND_URL = "https://reflect-client-241770940238.us-east1.run.app";
+const BACKEND_URL = "https://reflect-241770940238.us-east1.run.app";
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        "connect-src": ["'self'", FRONTEND_URL, BACKEND_URL],
+        "img-src": ["'self'", "data:", "https:"],
+        "font-src": ["'self'", "data:", "https:"],
+        "style-src": ["'self'", "https:", "'unsafe-inline'"],
+        "script-src": ["'self'"],
+      },
+    },
+  })
+);
+
+
 app.use(cors());
 app.use(express.json());
 
