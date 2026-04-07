@@ -1,161 +1,125 @@
 # Reflect — Full-Stack MERN Application
 
-Reflect is a calm, full-stack journaling web application designed to help users write, reflect, and track their thoughts in a peaceful, distraction-free environment.
+## Overview
+Reflect is a full-stack journaling web application designed to help users write, reflect, and track their thoughts in a calm, distraction-free environment.
 
-This project is built as a **single full-stack MERN application** with a React frontend and a Node.js/Express backend, deployed together as one service.
+This project is built as a single full-stack MERN application with a React frontend and a Node.js/Express backend deployed together.
 
----
-
-🌐 Live Application
-
-Live App (Frontend):
+## Live Application
+Frontend:
 https://reflect-client-241770940238.us-east1.run.app
 
 Backend API:
 https://reflect-241770940238.us-east1.run.app
 
-Note: The backend URL is an API service; please use the frontend URL to interact with the app.
----
+Note: The backend URL is an API service; use the frontend URL to interact with the app.
 
-## ✨ Features
-
-- User authentication (sign up / sign in)
+## Features
+- User authentication (sign up, sign in, logout)
 - JWT-based authentication with persistent login
-- Create, edit, and delete personal journal entries
+- Create, edit, and delete journal entries
 - Mood tracking and optional tags per entry
-- Daily inspirational quote powered by a third-party API
+- Daily inspirational quote integration
 - User profile page
 - Responsive design for mobile and desktop
 - Secure, user-specific data access
 
----
+## Third-Party API Integration
+This project integrates the ZenQuotes API to display a daily inspirational quote.
 
-## 🧠 Third-Party API Integration
+The backend fetches the quote and exposes it through an internal endpoint. The frontend never calls the external API directly.
 
-This project integrates the **ZenQuotes API** to display a daily inspirational quote.
+Endpoint:
+GET /api/quote/today
 
-### How it works
-- The **backend** fetches data from the ZenQuotes API
-- The frontend **never calls the external API directly**
-- The frontend requests quotes from the backend endpoint:
+If the external API is unavailable, the backend returns a fallback response to maintain reliability.
 
-```http
- GET /api/quote/today
-
- - If the external API is unavailable, the backend provides a graceful fallback response
-
-This approach ensures security, reliability, and proper separation of concerns.
-```
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - React
 - JavaScript (ES6+)
 - React Router
 - Fetch API
-- Custom CSS (responsive design)
+- CSS (responsive design)
 
 ### Backend
 - Node.js
 - Express
 - MongoDB Atlas
 - Mongoose
-- JWT
+- JSON Web Tokens (JWT)
 - bcryptjs
-- Celebrate / Joi (request validation)
+- Celebrate / Joi
 
 ### Infrastructure
-- Google Cloud Run (deployment)
-- MongoDB Atlas (cloud database)
-- Docker (containerized build)
+- Google Cloud Run
+- MongoDB Atlas
+- Docker
 
----
-
-## 📁 Project Structure
+## Project Structure
 reflect-fullstack/
-├── client/ # React frontend
-├── server/ # Express backend
-├── Dockerfile # Cloud Run build configuration
+├── client/
+├── server/
+├── Dockerfile
 ├── .dockerignore
 └── README.md
 
----
+## Environment Variables
+MONGO_URI=your_mongodb_connection_string  
+JWT_SECRET=your_jwt_secret  
+PORT=8080  
 
-## ⚙️ Environment Variables
+## Running Locally
 
-The backend requires the following environment variables:
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=8080
-When deployed, these variables are configured directly in **Google Cloud Run**.
+git clone https://github.com/lizmary0209/reflect-fullstack.git  
+cd reflect-fullstack  
 
----
+Frontend:
+cd client  
+npm install  
+npm run build  
 
-## 🚀 Running Locally
+Backend:
+cd ../server  
+npm install  
+npm run dev  
 
-### Prerequisites
-- Node.js
-- npm
-- MongoDB (local or Atlas)
+App runs at:
+http://localhost:3001  
 
-### Steps
-
-```bash
-git clone https://github.com/lizmary0209/reflect-fullstack.git
-cd reflect-fullstack 
-```
----
-
-## Frontend build
-- cd client
-- npm install
-- npm run build
-
-## Backend 
-- cd ../server
-- npm install
-- npm run dev
-
-The app will be available at:
-http://localhost:3001
-
-## 🔐 Authentication Flow
-
+## Authentication Flow
 - Passwords are hashed before storage
-- JWT is issued on successful login
+- JWT is issued on login
 - JWT is stored in localStorage
-- Protected routes require a valid JWT
-- User remains logged in after refresh
+- Protected routes require a valid token
+- Users remain logged in after refresh
 - Users can only access their own data
 
-## 📡 API Endpoints
- # Auth
-- POST /api/signup — register a new user
-- POST /api/signin — authenticate user
-- GET /api/users/me — get current user
+## API Endpoints
 
- # Journal Entries
-- GET /api/entries — get all entries
-- POST /api/entries — create entry
-- PATCH /api/entries/:id — update entry
-- DELETE /api/entries/:id — delete entry
+Auth:
+- POST /api/signup
+- POST /api/signin
+- GET /api/users/me
 
-# Quotes
-- GET /api/quote/today — fetch daily inspirational quote
+Entries:
+- GET /api/entries
+- POST /api/entries
+- PATCH /api/entries/:id
+- DELETE /api/entries/:id
 
-## 🎥 Demo Videos
-# Frontend Walkthrough
+Quotes:
+- GET /api/quote/today
 
+## Demo Videos
+
+Frontend:
 https://drive.google.com/file/d/1JlC-p9ySAa8aapVgu3yQoe7SNLADsIqL/view
 
-# Backend Walkthrough
-
+Backend:
 https://drive.google.com/file/d/1kFMDfYWHF8NX9wADQ7j3apM2x69X0vHM/view
 
-
-## 👩‍💻 Author
-
-Lizmary Chardon
-Software Engineering Student — TripleTen
+## Author
+Lizmary Chardon  
+Software Engineer | Full-Stack MERN
