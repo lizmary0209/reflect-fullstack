@@ -3,14 +3,14 @@
 ## Overview
 Reflect is a full-stack journaling web application designed to help users write, reflect, and track their thoughts in a calm, distraction-free environment.
 
-This project is built as a single full-stack MERN application with a React frontend and a Node.js/Express backend deployed together.
+This project is built as a single full-stack MERN application with a React frontend and a Node.js/Express backend deployed separately.
 
 ## Live Application
 Frontend:
-https://reflect-client-241770940238.us-east1.run.app
+https://reflect-fullstack.vercel.app/
 
 Backend API:
-https://reflect-241770940238.us-east1.run.app
+https://reflect-backend-w00n.onrender.com/
 
 Note: The backend URL is an API service; use the frontend URL to interact with the app.
 
@@ -37,7 +37,7 @@ If the external API is unavailable, the backend returns a fallback response to m
 ## Tech Stack
 
 ### Frontend
-- React
+- React (Vite)
 - JavaScript (ES6+)
 - React Router
 - Fetch API
@@ -53,22 +53,20 @@ If the external API is unavailable, the backend returns a fallback response to m
 - Celebrate / Joi
 
 ### Infrastructure
-- Google Cloud Run
+- Vercel (Frontend)
+- Render (Backend)
 - MongoDB Atlas
-- Docker
 
 ## Project Structure
 reflect-fullstack/
 ├── client/
 ├── server/
-├── Dockerfile
-├── .dockerignore
 └── README.md
 
 ## Environment Variables
 MONGO_URI=your_mongodb_connection_string  
 JWT_SECRET=your_jwt_secret  
-PORT=8080  
+NODE_ENV=production  
 
 ## Running Locally
 
@@ -78,7 +76,7 @@ cd reflect-fullstack
 Frontend:
 cd client  
 npm install  
-npm run build  
+npm run dev  
 
 Backend:
 cd ../server  
@@ -111,6 +109,53 @@ Entries:
 
 Quotes:
 - GET /api/quote/today
+
+## Challenges & Solutions
+
+### 1. Frontend and Backend Deployment Mismatch
+**Challenge:**  
+After deployment, API requests were returning 404 errors because the frontend was calling relative paths instead of the deployed backend.
+
+**Solution:**  
+Implemented environment-based configuration using `VITE_API_URL` and ensured all API requests used a centralized base URL. Updated Vercel environment variables and redeployed the frontend.
+
+---
+
+### 2. Incorrect Branch Deployment
+**Challenge:**  
+Both Render and Vercel were deploying outdated code from the wrong branch, causing inconsistencies between local development and production.
+
+**Solution:**  
+Identified branch mismatch and updated deployment settings to use the correct branch. Merged working branch into `main` for consistent production deployments.
+
+---
+
+### 3. Backend Serving Frontend Build in Production
+**Challenge:**  
+The backend attempted to serve a frontend build (`client/dist`) that did not exist in the Render environment, causing runtime errors.
+
+**Solution:**  
+Removed static file serving from the backend and separated frontend and backend deployments (Vercel + Render).
+
+---
+
+### 4. MongoDB Authentication Errors in Production
+**Challenge:**  
+Initial deployment failed due to incorrect MongoDB connection string configuration.
+
+**Solution:**  
+Reconfigured environment variables in Render and verified correct database credentials and connection URI format.
+
+---
+
+### 5. Slow Initial Load from Backend
+**Challenge:**  
+The backend experienced slow initial responses due to cold starts on Render.
+
+**Solution:**  
+Confirmed expected behavior for free-tier hosting and implemented loading states on the frontend to improve user experience.
+
+---
 
 ## Demo Videos
 
