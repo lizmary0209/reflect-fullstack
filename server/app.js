@@ -10,8 +10,8 @@ const quoteRouter = require("./routes/quote");
 
 const app = express();
 
-const FRONTEND_URL = "https://reflect-client-241770940238.us-east1.run.app";
-const BACKEND_URL = "https://reflect-241770940238.us-east1.run.app";
+const FRONTEND_URL = "https://reflect-fullstack.vercel.app";
+const BACKEND_URL = "https://reflect-backend-w00n.onrender.com";
 
 
 app.use(
