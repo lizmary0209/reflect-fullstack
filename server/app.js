@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const { errors } = require("celebrate");
-const path = require("path");
+
 
 const routes = require("./routes");
 const entriesRouter = require("./routes/entries");
@@ -47,12 +47,6 @@ app.use((err, req, res, next) => {
   }
 
   return res.status(statusCode).send({ message });
-});
-
-app.use(express.static(path.join(__dirname, "..", "client", "dist")));
-
-app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
 });
 
 module.exports = app;
